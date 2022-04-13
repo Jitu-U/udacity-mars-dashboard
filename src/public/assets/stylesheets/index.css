@@ -142,6 +142,14 @@ color: rgb(70, 70, 70);
   height: auto;
 }
 
+.gallary-loading{
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.592);
+  border-radius: 13px;
+  align-self: center;
+  margin: 10px;
+}
+
 /* -------------------  TABLET and Desktop --------------------- */
 @media (min-width: 768px) {
   /* use mobile */

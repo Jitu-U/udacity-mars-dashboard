@@ -140,7 +140,7 @@ const renderImages = (images,info,currentTab) => {
                         </figure>`
         })
     } else{
-        imageHTML=`<div>Searching in the Gallery...</div>`
+        imageHTML=`<div class='gallary-loading'>Searching in the Gallery...</div>`
     }
     
     return imageHTML;
