@@ -18,7 +18,7 @@ const render = async (root, state) => {
 }
 
 
-
+//Higher order function receiving renderInfo(), and renderImages() methods and returining renderPage()
 const App = (state, renderInfo, renderImages) => {
     const { roverInfo, roverImages, currentTab } = state
 
@@ -26,21 +26,25 @@ const App = (state, renderInfo, renderImages) => {
 }
 
 
-//To render the content on page
+//Higher Order Function : getting renderInfo(), renderImage()  methods and returning htmlGenerator()
 const renderPage = (roverInfo, roverImages,currentTab,renderInfo,renderImage) => {
     const infoHTML= renderInfo(roverInfo,currentTab);
     const imageHTML= renderImage(roverImages,roverInfo,currentTab);
-    return `
-        <div>
-            <div class="info-container">
-                ${infoHTML}
-            </div>
-            <section class="image-container">
-                ${imageHTML}
-            </section>
-        </div>
-    `
+    return htmlGenerator(infoHTML,imageHTML);
 }
+
+const htmlGenerator = (infoHTML, imageHTML) => {
+    return `
+         <div>
+             <div class="info-container">
+                 ${infoHTML}
+             </div>
+             <section class="image-container">
+                 ${imageHTML}
+             </section>
+         </div>
+     `
+ }
 
 
 //Fetch All data including rover info and photos
