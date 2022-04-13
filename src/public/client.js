@@ -14,20 +14,20 @@ const updateStore = (store, newState) => {
 }
 
 const render = async (root, state) => {
-    root.innerHTML = App(state, renderInfo, renderImages)
+    root.innerHTML = App(state, renderInfo, renderImages, renderPage)
 }
 
 
 //Higher order function receiving renderInfo(), and renderImages() methods and returining renderPage()
-const App = (state, renderInfo, renderImages) => {
+const App = (state, renderInfo, renderImages, renderPage) => {
     const { roverInfo, roverImages, currentTab } = state
 
-    return renderPage(roverInfo, roverImages,currentTab, renderInfo, renderImages);
+    return renderPage(roverInfo, roverImages,currentTab, renderInfo, renderImages,htmlGenerator);
 }
 
 
 //Higher Order Function : getting renderInfo(), renderImage()  methods and returning htmlGenerator()
-const renderPage = (roverInfo, roverImages,currentTab,renderInfo,renderImage) => {
+const renderPage = (roverInfo, roverImages,currentTab,renderInfo,renderImage,htmlGenerator) => {
     const infoHTML= renderInfo(roverInfo,currentTab);
     const imageHTML= renderImage(roverImages,roverInfo,currentTab);
     return htmlGenerator(infoHTML,imageHTML);
